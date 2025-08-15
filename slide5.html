@@ -136,30 +136,20 @@
 </body>
 <script>
 window.addEventListener("keydown", (e) => {
-  if (e.code === "Space") e.preventDefault(); // space scroll block
+  // space scroll ko rokna
+  if (e.code === "Space") e.preventDefault();
 
-  // current page ka naam nikaalo
-  const currentPage = window.location.pathname.split("/").pop(); 
-  const match = currentPage.match(/slide(\d+)\.html/);
+  // Next page (Right Arrow / Space)
+  if (e.code === "Space" || e.code === "ArrowRight") {
+    window.location.href = "slide6.html";  // apna next link daal dein
+  }
 
-  if (match) {
-    let num = parseInt(match[1]);
-
-    // Next page (Space / Right Arrow)
-    if (e.code === "Space" || e.code === "ArrowRight") {
-      if (num < 7) { // total 7 slides
-        window.location.href = `slide${num + 1}.html`;
-      }
-    }
-
-    // Previous page (Left Arrow)
-    if (e.code === "ArrowLeft") {
-      if (num > 1) {
-        window.location.href = `slide${num - 1}.html`;
-      }
-    }
+  // Previous page (Left Arrow)
+  if (e.code === "ArrowLeft") {
+    window.history.back(); // browser ka back button jaisa kaam karega
   }
 });
 </script>
 
 </html>
+
