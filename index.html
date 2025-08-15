@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idgham Slide</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0; 
+      height: 100vh; 
+      display: grid; 
+      place-items: center; 
+      background: #0b0f14; 
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Border glow */
+    body::before {
+      content: "";
+      position: fixed; 
+      top: 0; left: 0; right: 0; bottom: 0; 
+      border-radius: 20px;
+      animation: borderAnim 4s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes borderAnim {
+      0% { box-shadow: 0 0 10px #22d3ee, inset 0 0 10px #22d3ee; }
+      50% { box-shadow: 0 0 40px #22d3ee, inset 0 0 40px #22d3ee; }
+      100% { box-shadow: 0 0 10px #22d3ee, inset 0 0 10px #22d3ee; }
+    }
+
+    .stage {
+      width: min(1200px, 92vw); 
+      height: min(675px, 92vh);
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: flex-start; 
+      gap: 14px;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    /* Heading */
+    .heading {
+      font-weight: 600; 
+      font-size: clamp(48px, 6vw, 88px); 
+    }
+    .arabic {
+      font-family: 'Scheherazade New', serif;
+      margin-left: 12px;
+      font-size: 1.1em;
+    }
+
+    /* Definition text */
+    .intro {
+      font-size: clamp(20px, 2.2vw, 30px); 
+      color: #e5e7eb; 
+      max-width: 85%;
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+
+    /* Yarmaloon word */
+    .labelline {
+      display: flex; 
+      align-items: center; 
+      gap: 14px; 
+      font-size: clamp(20px, 2vw, 28px); 
+      color: #d1d5db; 
+      margin-top: 24px;
+    }
+    .badge {
+      padding: .25em .6em; 
+      border-radius: .6rem; 
+      background: #111827; 
+      font-size: clamp(42px, 4vw, 56px);
+      font-family: 'Scheherazade New', serif;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .badge:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(34,211,238,.8);
+      background: #132033;
+    }
+
+    /* Boxes */
+    .boxes {
+      display: grid; 
+      grid-template-columns: repeat(6, minmax(70px, 1fr)); 
+      gap: 16px; 
+      max-width: 800px; 
+      margin-top: 12px;
+      direction: rtl;
+    }
+    .box {
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      background: #101826; 
+      border-radius: 16px; 
+      padding: 18px 64px; 
+      font-size: clamp(34px, 5vw, 66px);
+      font-family: 'Scheherazade New', serif; 
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .box:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 25px rgba(34,211,238,.7);
+      background: #132033;
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <!-- Heading -->
+    <div class="heading">
+      Idgham <span class="arabic">إدغام</span>
+    </div>
+
+    <!-- Definition -->
+    <div class="intro">
+      Idgham means merging Noon Sakin or Tanween <br>
+      into the next letter so both are read together smoothly.
+    </div>
+
+    <!-- Yarmaloon -->
+    <div class="labelline">
+      <span>There are 6 Yarmaloon letters</span>
+      <span class="arabic badge" title="Yarmaloon">يرملون</span>
+    </div>
+
+    <!-- Boxes -->
+    <div class="boxes" aria-label="Yarmaloon letters">
+      <div class="box" title="Ya">ي</div>
+      <div class="box" title="Ra">ر</div>
+      <div class="box" title="Meem">م</div>
+      <div class="box" title="Lam">ل</div>
+      <div class="box" title="Waw">و</div>
+      <div class="box" title="Noon">ن</div>
+    </div>
+  </div>
+
+
+</body>
+<script>
+window.addEventListener("keydown", (e) => {
+  if (e.code === "Space") e.preventDefault(); // stop space scroll
+
+  // Next (Space / Right Arrow)
+  if (e.code === "Space" || e.code === "ArrowRight") {
+    window.location.href = "slide2.html";  // yahan apna next link likho
+  }
+
+  // Previous (Left Arrow)
+  if (e.code === "ArrowLeft") {
+    window.location.href = "index.html";  // yahan apna previous link likho
+  }
+});
+</script>
+
+</html>
